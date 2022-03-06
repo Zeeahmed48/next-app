@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import classes from './MeetupItem.module.css';
 
 const MeetupItem = ({ meetup }) => {
   const router = useRouter();
@@ -9,11 +10,11 @@ const MeetupItem = ({ meetup }) => {
   };
 
   return (
-    <div key={`meetup-${meetup?.id}`}>
+    <div key={`meetup-${meetup?.id}`} className={classes.meetupItem}>
       <img src={meetup?.image} />
       <h3>{meetup?.title}</h3>
-      <h6>{meetup?.description}</h6>
-      <p>{meetup?.address}</p>
+      <p>{meetup?.description}</p>
+      <address>{meetup?.address}</address>
       <button onClick={() => showMeetupDetails(meetup?.id)}>
         Show Details
       </button>

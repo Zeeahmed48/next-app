@@ -1,0 +1,30 @@
+.headerContainer {
+  background: linear-gradient(135deg, #3660f7, #652fa1);
+  padding: 16px 0;
+}
+
+.headerContainer header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.headerContainer header h1 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  font-family: cursive;
+}
+.headerContainer header ul {
+  list-style-type: none;
+  display: flex;
+}
+.headerContainer header ul li {
+  margin-left: 18px;
+}
+.headerContainer header ul li a {
+  font-size: 20px;
+  color: #fff;
+}
