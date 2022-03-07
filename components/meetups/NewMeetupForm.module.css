@@ -1,0 +1,48 @@
+.formContainer {
+  width: 100%;
+  max-width: 968px;
+  margin: auto;
+  margin-top: 5rem;
+  border-radius: 8px;
+  padding: 2.5rem;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+.inputWrapper {
+  margin-bottom: 18px;
+}
+
+.inputWrapper label {
+  display: block;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.inputWrapper input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 4px;
+  border: 0.5px solid #ccc;
+  outline: 0.5px solid transparent;
+}
+
+.inputWrapper input:focus-visible {
+  outline-color: #3660f7;
+  border-color: transparent;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 18px;
+}
+
+.buttonWrapper button {
+  background: linear-gradient(135deg, #3660f7, #652fa1);
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
