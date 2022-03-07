@@ -1,5 +1,5 @@
 import MeetupItem from './MeetupItem';
-import classes from './MeetUpList.module.css';
+import classes from './MeetupList.module.css';
 
 const MeetUpList = ({ meetups }) => {
   return (
