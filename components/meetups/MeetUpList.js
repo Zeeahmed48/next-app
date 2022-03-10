@@ -1,7 +1,7 @@
 import MeetupItem from './MeetupItem';
 import classes from './MeetupList.module.css';
 
-const MeetUpList = ({ meetups }) => {
+const MeetupList = ({ meetups }) => {
   return (
     <div className={classes.meetupList}>
       {meetups?.map((meetup) => (
@@ -11,4 +11,4 @@ const MeetUpList = ({ meetups }) => {
   );
 };
 
-export default MeetUpList;
+export default MeetupList;
