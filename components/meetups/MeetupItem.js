@@ -10,7 +10,7 @@ const MeetupItem = ({ meetup }) => {
   };
 
   return (
-    <div key={`meetup-${meetup?.id}`} className={classes.meetupItem}>
+    <div className={classes.meetupItem}>
       <img src={meetup?.image} />
       <div className={classes.contentContainer}>
         <h3>{meetup?.title}</h3>

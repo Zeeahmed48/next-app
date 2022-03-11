@@ -5,7 +5,7 @@ const MeetupList = ({ meetups }) => {
   return (
     <div className={classes.meetupList}>
       {meetups?.map((meetup) => (
-        <MeetupItem meetup={meetup} />
+        <MeetupItem key={`meetup-${meetup?.id}`} meetup={meetup} />
       ))}
     </div>
   );
