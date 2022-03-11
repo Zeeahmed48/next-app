@@ -11,7 +11,7 @@
   margin: auto;
 }
 
-.headerContainer header h1 {
+.headerContainer header > a {
   color: #fff;
   font-size: 32px;
   font-weight: bold;
