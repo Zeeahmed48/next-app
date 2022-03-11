@@ -5,7 +5,7 @@ const MainNavigation = () => {
   return (
     <div className={classes.headerContainer}>
       <header>
-        <h1>Next Meetups</h1>
+        <Link href='/'>Next Meetups</Link>
         <nav>
           <ul>
             <li>
