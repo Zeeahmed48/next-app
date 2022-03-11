@@ -1,8 +1,8 @@
 .meetupItem {
-  padding: 18px;
-  box-shadow: 2px 4px 12px -2px rgba(0, 0, 0, 0.5);
-  border-radius: 24px;
-  min-width: 350px;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.35);
+  border-radius: 12px;
+  min-width: 360px;
+  overflow: hidden;
 }
 
 .meetupItem img {
@@ -11,21 +11,25 @@
   object-fit: cover;
 }
 
-.meetupItem h3 {
-  font-size: 22px;
-  margin-bottom: 5px;
+.contentContainer {
+  padding: 18px;
 }
 
-.meetupItem p {
+.contentContainer h3 {
+  font-size: 22px;
+  margin: 12px 0 8px;
+}
+
+.contentContainer p {
   font-size: 16px;
   margin-bottom: 4px;
 }
 
-.meetupItem address {
+.contentContainer address {
   margin-bottom: 12px;
 }
 
-.meetupItem button {
+.contentContainer button {
   padding: 8px;
   color: #fff;
   background: linear-gradient(135deg, #3660f7, #652fa1);

@@ -12,12 +12,14 @@ const MeetupItem = ({ meetup }) => {
   return (
     <div key={`meetup-${meetup?.id}`} className={classes.meetupItem}>
       <img src={meetup?.image} />
-      <h3>{meetup?.title}</h3>
-      <p>{meetup?.description}</p>
-      <address>{meetup?.address}</address>
-      <button onClick={() => showMeetupDetails(meetup?.id)}>
-        Show Details
-      </button>
+      <div className={classes.contentContainer}>
+        <h3>{meetup?.title}</h3>
+        <p>{meetup?.description}</p>
+        <address>{meetup?.address}</address>
+        <button onClick={() => showMeetupDetails(meetup?.id)}>
+          Show Details
+        </button>
+      </div>
     </div>
   );
 };
