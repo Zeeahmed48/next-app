@@ -1,36 +1,63 @@
+import { MongoClient, ObjectId } from "mongodb";
 import MeetupDetail from "../../components/meetups/MeetupDetails";
 
-const SingleMeetup = (props) => {
-  return <MeetupDetail image="" />;
+const SingleMeetup = ({
+  meetupData: { image, title, description, address },
+}) => {
+  return (
+    <MeetupDetail
+      image={image}
+      title={title}
+      description={description}
+      address={address}
+    />
+  );
 };
 
 export const getStaticPaths = async () => {
+  const uri = process.env.REACT_APP_MONGO_URI;
+
+  const client = new MongoClient(uri);
+
+  await client.connect();
+
+  const db = client.db("meetups");
+  const meetupsCollections = db.collection("meetups");
+  const meetupIds = await meetupsCollections.find({}, { _id: 1 }).toArray();
+
+  await client.close();
+
   return {
     fallback: false,
-    paths: [
-      {
-        params: {
-          meetupId: "meetup1",
-        },
+    paths: meetupIds.map((meetup) => ({
+      params: {
+        meetupId: meetup._id.toString(),
       },
-      {
-        params: {
-          meetupId: "meetup2",
-        },
-      },
-    ],
+    })),
   };
 };
 
 export const getStaticProps = async (context) => {
   const meetupId = context.params.meetupId;
+  const uri = process.env.REACT_APP_MONGO_URI;
+
+  const client = new MongoClient(uri);
+
+  await client.connect();
+
+  const db = client.db("meetups");
+  const meetupsCollections = db.collection("meetups");
+  const meetupData = await meetupsCollections.findOne({ _id: ObjectId(meetupId) });
+
+  await client.close();
   return {
     props: {
       meetupData: {
-        image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTXvo15izkAl8A9f1KfV9LRbxX102OMLM-2A&usqp=CAU",
-        id: "m1",
-        title: "First Meetup ",
+        image: meetupData.image,
+        id: meetupData._id.toString(),
+        title: meetupData.title,
+        description: meetupData.description,
+        address: meetupData.address,
       },
     },
   };
