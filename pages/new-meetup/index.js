@@ -7,7 +7,7 @@ const NewMeetup = () => {
   const router = useRouter();
 
   const addNewMeetup = async (meetupData) => {
-    fetch('/api/new-meetup', {
+    await fetch('/api/new-meetup', {
       method: 'POST',
       body: JSON.stringify(meetupData),
       headers: {
