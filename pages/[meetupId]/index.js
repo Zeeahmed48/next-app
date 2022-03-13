@@ -1,7 +1,7 @@
-import { Fragment } from "react";
-import Head from "next/head";
-import { MongoClient, ObjectId } from "mongodb";
-import MeetupDetail from "../../components/meetups/MeetupDetails";
+import { Fragment } from 'react';
+import Head from 'next/head';
+import { MongoClient, ObjectId } from 'mongodb';
+import MeetupDetail from '../../components/meetups/MeetupDetails';
 
 const SingleMeetup = ({
   meetupData: { image, title, description, address },
@@ -10,10 +10,7 @@ const SingleMeetup = ({
     <Fragment>
       <Head>
         <title>{title}</title>
-        <meta
-          name='description'
-          content={description}
-        />
+        <meta name='description' content={description} />
       </Head>
       <MeetupDetail
         image={image}
@@ -32,14 +29,14 @@ export const getStaticPaths = async () => {
 
   await client.connect();
 
-  const db = client.db("meetups");
-  const meetupsCollections = db.collection("meetups");
+  const db = client.db('meetups');
+  const meetupsCollections = db.collection('meetups');
   const meetupIds = await meetupsCollections.find({}, { _id: 1 }).toArray();
 
   await client.close();
 
   return {
-    fallback: false,
+    fallback: 'blocking',
     paths: meetupIds.map((meetup) => ({
       params: {
         meetupId: meetup._id.toString(),
@@ -56,9 +53,11 @@ export const getStaticProps = async (context) => {
 
   await client.connect();
 
-  const db = client.db("meetups");
-  const meetupsCollections = db.collection("meetups");
-  const meetupData = await meetupsCollections.findOne({ _id: ObjectId(meetupId) });
+  const db = client.db('meetups');
+  const meetupsCollections = db.collection('meetups');
+  const meetupData = await meetupsCollections.findOne({
+    _id: ObjectId(meetupId),
+  });
 
   await client.close();
   return {
